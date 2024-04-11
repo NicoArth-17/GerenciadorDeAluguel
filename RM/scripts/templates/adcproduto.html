@@ -1,6 +1,53 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    {% include 'header.html' %}
-    {% include 'navbar.html' %}
+
+    <div class="input-group">
+        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Carregar</button>
+    </div>
+
+    <br>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Tipo do produto</label>
+        <select class="form-select" id="inputGroupSelect01">
+            <option selected>Escolha...</option>
+            <option value="1">Masculino</option>
+            <option value="2">Vestidos</option>
+            <option value="3">Acessórios</option>
+        </select>
+        <label class="input-group-text" for="inputGroupSelect01">Tamanho</label>
+        <select class="form-select" id="inputGroupSelect01">
+            <option selected>Escolha...</option>
+            <option value="1">3 anos</option>
+            <option value="2">5 anos</option>
+            <option value="3">7 anos</option>
+            <option value="4">10 anos</option>
+            <option value="5">12 anos</option>
+            <option value="6">14 anos</option>
+            <option value="7">16 anos</option>
+            <option value="8">adulto</option>
+            <option value="9">Não se aplica</option>
+        </select>
+    </div>
+
+    <br>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Nome do produto" aria-label="Username">
+        <span class="input-group-text">Nº</span>
+        <input class="form-control" type="text" value="Número do produto" aria-label="readonly input example" readonly>
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" placeholder="Valor" aria-label="Dollar amount (with dot and two decimal places)">
+        <span class="input-group-text">0.00</span>
+    </div>
+
+    <br>
+
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">Descrição do produto</label>
+      </div>
+
 {% endblock %}
