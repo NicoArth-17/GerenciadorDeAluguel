@@ -17,9 +17,9 @@ def adcproduto():
 def alugueis():
     return render_template('alugueis.html')
 
-@app.route('/clientes')
-def clientes():
-    return render_template('clientes.html')
+@app.route('/CadastrarClientes')
+def CadastrarClientes():
+    return render_template('cadastrarclientes.html')
 
 app.route('/calendario')
 def calendario():
