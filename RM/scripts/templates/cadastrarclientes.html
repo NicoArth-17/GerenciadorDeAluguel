@@ -3,51 +3,50 @@
 {% block body %}
     <div class="container">
         <form class="row g-3">
+            {{ form.csrf_token }}
+
             <div class="col-md-6">
-                <label for="inputAddress" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="inputAddress">
+                {{ form.nome.label(class="form-label") }}
+                {{ form.nome(class="form-control") }}
             </div>
 
             <div class="col-md-6">
-                <label for="inputAddress" class="form-label">Telefone</label>
-                <input type="text" class="form-control" id="inputAddress">
+                {{ form.telefone.label(class="form-label") }}
+                {{ form.telefone(class="form-control")}}
             </div>
 
             <div class="col-12">
-                <label for="inputAddress" class="form-label">Endereço</label>
-                <input type="text" class="form-control" id="inputAddress">
+                {{ form.endereco.label(class="form-label") }}
+                {{ form.endereco(class="form-control") }}
             </div>
 
             <div class="col-md-6">
-                <label for="inputCity" class="form-label">Cidade</label>
-                <input type="text" class="form-control" id="inputCity">
+                {{ form.cidade.label(class="form-label") }}
+                {{ form.cidade(class="form-control") }}
             </div>
 
             <div class="col-md-4">
-                <label for="inputState" class="form-label">UF</label>
-                <select id="inputState" class="form-select">
-                    <option selected>Selecione</option>
-                    <option>MG</option>
-                </select>
+                {{ form.uf.label(class="form-label") }}
+                {{ form.uf(class="form-select") }}
             </div>
 
             <div class="col-md-2">
-                <label for="inputZip" class="form-label">CEP</label>
-                <input type="text" class="form-control" id="inputZip">
+                {{ form.cep.label(class="form-label") }}
+                {{ form.cep(class="form-control") }}
             </div>
 
             <div class="col-md-6">
-                <label for="inputAddress" class="form-label">Data de nascimento</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="dd/mm/aaaa">
+                {{ form.nascimento.label(class="form-label") }}
+                {{ form.nascimento(class="form-control") }}
             </div>
 
             <div class="col-md-6">
-                <label for="inputAddress" class="form-label">CPF</label>
-                <input type="text" class="form-control" id="inputAddress">
+                {{ form.cpf.label(class="form-label") }}
+                {{ form.cpf(class="form-control") }}
             </div>
 
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Concluir</button>
+                {{ form.concluir(class="btn btn-primary") }}
             </div>
             
         </form>
