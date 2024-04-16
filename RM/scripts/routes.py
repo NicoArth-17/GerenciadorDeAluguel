@@ -1,6 +1,6 @@
 from __init__ import app
 from flask import render_template, url_for, redirect
-from forms import FormCadastroCliente
+from forms import FormCadastroCliente, FormAdcProduto
 
 @app.route('/')
 def login():
@@ -12,7 +12,10 @@ def home():
 
 @app.route('/AdcProduto')
 def adcproduto():
-    return render_template('adcproduto.html')
+
+    form_AdcProduto = FormAdcProduto()
+
+    return render_template('adcproduto.html', form=form_AdcProduto)
 
 @app.route('/alugueis')
 def alugueis():
