@@ -17,9 +17,9 @@ def adcproduto():
 
     return render_template('adcproduto.html', form=form_AdcProduto)
 
-@app.route('/alugueis')
-def alugueis():
-    return render_template('alugueis.html')
+@app.route('/produtos/masculino', methods=['GET', 'POST'])
+def masculino():
+    return render_template('masculino.html')
 
 @app.route('/CadastrarClientes')
 def CadastrarClientes():

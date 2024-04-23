@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+{% endblock %}
+
+{% block body%}
+    <div class="painel_fotos">
+
+        <!-- Loop para mostrar os posts no perfil -->
+        <!-- {% for post in usuario.posts %} -->
+        
+        <div class="foto">
+            <!-- <img src="{{ url_for('static', filename='img_posts/{}'.format(post.imagem)) }}"> -->
+            <img src="{{ url_for('static', filename='img_posts/lofi1.jpeg') }}">
+        </div>
+
+        <!-- {% endfor %}     -->
+    </div>
+{% endblock %}
