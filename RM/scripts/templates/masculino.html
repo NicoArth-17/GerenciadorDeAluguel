@@ -8,13 +8,13 @@
     <div class="painel_fotos">
 
         <!-- Loop para mostrar os posts no perfil -->
-        <!-- {% for post in usuario.posts %} -->
+        {% for produto in produtos.iamgem %}
         
-        <div class="foto">
-            <!-- <img src="{{ url_for('static', filename='img_posts/{}'.format(post.imagem)) }}"> -->
-            <img src="{{ url_for('static', filename='img_posts/lofi1.jpeg') }}">
-        </div>
+            <div class="foto">
+                <img src="{{ url_for('static', filename='img_produto/{}'.format(produtos.imagem)) }}">
+                <!-- <img src="{{ url_for('static', filename='img_posts/lofi1.jpeg') }}"> -->
+            </div>
 
-        <!-- {% endfor %}     -->
+        {% endfor %}    
     </div>
 {% endblock %}

@@ -12,9 +12,9 @@ class Clientes(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
     nome = database.Column(database.String, nullable=False)
     telefone = database.Column(database.Integer)
-    endereco = database.Column(database.String, nullable=False)
+    endereco = database.Column(database.Text, nullable=False)
     cidade = database.Column(database.String, nullable=False)
-    uf = database.Column() #multipla escolha
+    uf = database.Column(database.String, nullable=False) #multipla escolha
     cep = database.Column(database.Integer)
     cpf = database.Column(database.Integer)
 
@@ -22,8 +22,8 @@ class Clientes(database.Model, UserMixin):
 class Produtos(database.Model, UserMixin):
     codigo = database.Column(database.Integer, primary_key=True) # como um id
     imagem = database.Column(database.String, default='default.png')
-    tipo = database.Column() # multipla escolha
-    tamanho = database.Column() #multipla escolha
+    tipo = database.Column(database.String, nullable=False) # multipla escolha
+    tamanho = database.Column(database.String, nullable=False) #multipla escolha
     nome = database.Column(database.String, nullable=False, unique=True)
-    valor = database.Column() # float
-    descricao = database.Column(database.String, nullable=False)
+    valor = database.Column(database.Float)
+    descricao = database.Column(database.Text, nullable=False)
