@@ -13,7 +13,7 @@ def login():
 def home():
     return render_template('home.html')
 
-@app.route('/AdcProduto')
+@app.route('/AdcProduto', methods=['GET', 'POST'])
 def adcproduto():
 
     form_AdcProduto = FormAdcProduto()
@@ -34,15 +34,15 @@ def adcproduto():
         arquivo.save(caminho)
 
         # Registrando nome do arquivo no banco de dados
-        img = Produtos(imagem=nome_arquivo_seguro, id_cliente=Clientes.id)
+        img = Produtos(imagem=nome_arquivo_seguro)
         database.session.add(img)
         database.session.commit()
 
-    return render_template('adcproduto.html', form=form_AdcProduto)
+    return render_template('adcproduto.html', produtos=Produtos, form=form_AdcProduto)
 
-@app.route('/produtos/masculino', methods=['GET', 'POST'])
-def masculino():
-    return render_template('masculino.html')
+@app.route('/produtos/todos', methods=['GET', 'POST'])
+def p_todos():
+    return render_template('produtos-todos.html')
 
 @app.route('/CadastrarClientes')
 def CadastrarClientes():

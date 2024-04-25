@@ -14,7 +14,7 @@ if os.getenv("DEBUG") == 0:
 
     # Se estiver Local (para modificações)
 else:
-    link_sql = 'sqlite:///comunidade.db'
+    link_sql = 'sqlite:///RM.db'
 
     # Setando link do banco de dados
 app.config['SQLALCHEMY_DATABASE_URI'] = link_sql
@@ -23,7 +23,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = link_sql
 database = SQLAlchemy(app)
 
 # Upload de produtos
-app.config['UPLOAD_FOLDER'] = 'static/img_produto'
+app.config['UPLOAD_FOLDER'] = 'static/upload_img'
 
 # # Login
 # login_gerenciador = LoginManager(app)

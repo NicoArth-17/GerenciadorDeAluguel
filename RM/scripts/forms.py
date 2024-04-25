@@ -14,6 +14,7 @@ class FormCadastroCliente(FlaskForm):
     cpf = IntegerField('CPF', validators=[DataRequired(), Length(11,11)])
     concluir = SubmitField('Concluir')
 
+
 class FormAdcProduto(FlaskForm):
     imagem = FileField('Imagem', validators=[DataRequired()])
     tipo = SelectField('Tipo do produto', choices=['Acessórios', 'Masculino', 'Vestidos'], validators=[DataRequired()])
