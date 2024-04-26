@@ -9,14 +9,13 @@ class FormCadastroCliente(FlaskForm):
     cidade = StringField('Cidade', validators=[DataRequired()])
     uf = SelectField('UF', choices=['MG', 'RJ', 'ES', 'SP'], validators=[DataRequired()])
     cep = IntegerField('CEP', validators=[DataRequired(), Length(5,5)])
-    nascimento = DateField('Data de nascimento', validators=[DataRequired(), Length(10,10)])
     cpf = IntegerField('CPF', validators=[DataRequired(), Length(11,11)])
     concluir = SubmitField('Concluir')
 
 class FormAdcProduto(FlaskForm):
     imagem = FileField('Imagem', validators=[DataRequired()])
-    tipo = SelectField('Tipo do produto', choices=['Acessórios', 'Masculino', 'Vestidos'], validators=[DataRequired()])
-    tamanho = SelectField('Tamanho', choices=['Não se aplica', '3 anos', '5 anos', '7 anos', '10 anos', '12 anos', '14 anos', '16 anos', 'Adulto'])
+    tipo = SelectField('Tipo do produto', choices=['Acessórios', 'Masculino', 'Vestidos', 'Saias'], validators=[DataRequired()])
+    tamanho = SelectField('Tamanho', choices=['Não se aplica', '3 anos', '5 anos', '7 anos', '10 anos', '12 anos', '14 anos', '16 anos', 'P', 'M', 'G'])
     nome = StringField('Nome do produto', validators=[DataRequired()])
     codigo = IntegerField('Código do produto', validators=[DataRequired()])
     valor = DecimalField('Preço', places=2, validators=[DataRequired()])
