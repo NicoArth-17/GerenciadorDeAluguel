@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, IntegerField, TelField, SelectField, FileField, DecimalField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired, Length, ValidationError
 
+
 class FormCadastroCliente(FlaskForm):
     nome = StringField('Nome', validators=[DataRequired()])
     telefone = TelField('Telefone', validators=[DataRequired(), Length(11,11)])
@@ -11,6 +12,7 @@ class FormCadastroCliente(FlaskForm):
     cep = IntegerField('CEP', validators=[DataRequired(), Length(5,5)])
     cpf = IntegerField('CPF', validators=[DataRequired(), Length(11,11)])
     concluir = SubmitField('Concluir')
+
 
 class FormAdcProduto(FlaskForm):
     imagem = FileField('Imagem', validators=[DataRequired()])
