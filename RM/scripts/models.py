@@ -20,7 +20,7 @@ class Clientes(database.Model, UserMixin):
 
 # Tabela de produtos adicionados
 class Produtos(database.Model, UserMixin):
-    codigo = database.Column(database.Integer, primary_key=True) # como um id
+    id = database.Column(database.Integer, primary_key=True)
     imagem = database.Column(database.String, default='default.png')
     tipo = database.Column(database.String, nullable=False) # multipla escolha
     tamanho = database.Column(database.String, nullable=False) #multipla escolha

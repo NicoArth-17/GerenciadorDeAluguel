@@ -34,11 +34,12 @@ def adcproduto():
         arquivo.save(caminho)
 
         # Registrando nome do arquivo no banco de dados
-        img = Produtos(imagem=nome_arquivo_seguro)
-        database.session.add(img)
+        # img = Produtos(imagem=nome_arquivo_seguro)
+        Produto = Produtos(imagem=nome_arquivo_seguro, tipo=form_AdcProduto.tipo.data, tamanho=form_AdcProduto.tamanho.data, nome=form_AdcProduto.nome.data, valor=form_AdcProduto.valor.data, descricao=form_AdcProduto.descricao.data)
+        database.session.add(Produto)
         database.session.commit()
 
-    return render_template('adcproduto.html', produtos=Produtos, form=form_AdcProduto)
+    return render_template('adcproduto.html', img_produto=Produto.imagem, form=form_AdcProduto)
 
 @app.route('/produtos/todos', methods=['GET', 'POST'])
 def p_todos():
