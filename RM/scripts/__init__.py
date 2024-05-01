@@ -22,7 +22,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = link_sql
     # Base de dados
 database = SQLAlchemy(app)
 
-# Upload de produtos
+# Upload de igamem de produtos
 app.config['UPLOAD_FOLDER'] = 'static/upload_img'
 
 # # Login

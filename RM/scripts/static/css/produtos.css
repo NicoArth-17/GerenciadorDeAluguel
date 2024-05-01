@@ -22,8 +22,8 @@ div.painel_fotos
 
 div > div.foto
 {
-    width: 340px;
-    height: 340px;
+    width: 200px;
+    height: 200px;
     border: 10px solid white;
     box-shadow: 3px 3px 10px black;
     flex-grow: 1;
