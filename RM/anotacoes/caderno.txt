@@ -3,3 +3,5 @@ crie em PYTHON, HTML e CSS, um sistema com login para alugar roupas e acessório
 
 *Mudanças a serem pensadas
     Cadastrar endereço do cliente diretamente utilizando o maps    
+    Criar um controle de saída onde todas as vendas e devoluções serão registrados
+    Em movimentações escolher no calendário o período/data
