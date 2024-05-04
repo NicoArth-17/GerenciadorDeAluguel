@@ -1,19 +1,34 @@
 {% extends 'base.html' %}
 
-<!-- {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/produtos.css') }}">
-{% endblock %} -->
+{% block head %}
+    <link rel="stylesheet" href="../static/css/produtos.css">
+{% endblock %}
 
 {% block body%}
-    <div class="float">
+    <!-- <div class="painel_fotos"> -->
+    <div class="container-fluid">
 
-        <!-- Loop para mostrar os posts no perfil -->
-        {% for imagem in img_produto %}
+        <div class="painel">
+
+            {% for imagem in img_produto %}
         
-            <div class="foto">
-                <img src="{{ url_for('static', filename='upload_img/{}'.format(imagem[0])) }}" class="rounded">
+            <div>
+                <img src="{{ url_for('static', filename='upload_img/{}'.format(imagem[0])) }}" >
+
+                <div class="info-produto">
+                    <div id="titulo">
+                        <h2>Nome do Produto</h2>
+                    </div>
+                    <div id="codigo">
+                        <h2>00</h2>
+                    </div>
+                </div>
             </div>
 
-        {% endfor %}    
+            {% endfor %}    
+
+        </div>
     </div>
+
+    <footer></footer>
 {% endblock %}

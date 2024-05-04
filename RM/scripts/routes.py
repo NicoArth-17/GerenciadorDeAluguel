@@ -63,10 +63,25 @@ def p_todos():
 
 
 
-@app.route('/CadastrarClientes')
+@app.route('/AdcClientes', methods=['GET', 'POST'])
 def CadastrarClientes():
 
     form_CadCliente = FormCadastroCliente()
+
+    if form_CadCliente.validate_on_submit():
+
+        cliente = Clientes(nome=form_CadCliente.nome.data, 
+                           telefone=form_CadCliente.telefone.data, 
+                           endereco=form_CadCliente.endereco.data, 
+                           cidade=form_CadCliente.cidade.data, 
+                           uf=form_CadCliente.uf.data, 
+                           cep=form_CadCliente.cep.data, 
+                           cpf=form_CadCliente.cpf.data)
+
+        database.session.add(cliente)
+        database.session.commit()
+
+        return redirect(url_for('home'))
 
     return render_template('cadastrarclientes.html', form=form_CadCliente)
 

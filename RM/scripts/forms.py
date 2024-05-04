@@ -1,17 +1,17 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, IntegerField, TelField, SelectField, FileField, DecimalField, TextAreaField, SubmitField
-from wtforms.validators import DataRequired, Length, ValidationError
+from wtforms.validators import DataRequired, Length, NumberRange, ValidationError
 from models import Clientes, Produtos
 
 
 class FormCadastroCliente(FlaskForm):
     nome = StringField('Nome', validators=[DataRequired()])
-    telefone = TelField('Telefone', validators=[DataRequired(), Length(11,11)])
+    telefone = TelField('Telefone', validators=[DataRequired(), Length(min=11,max=11)])
     endereco = StringField('Endereço', validators=[DataRequired()])
     cidade = StringField('Cidade', validators=[DataRequired()])
     uf = SelectField('UF', choices=['MG', 'RJ', 'ES', 'SP'], validators=[DataRequired()])
-    cep = IntegerField('CEP', validators=[DataRequired(), Length(5,5)])
-    cpf = IntegerField('CPF', validators=[DataRequired(), Length(11,11)])
+    cep = IntegerField('CEP', validators=[DataRequired(), NumberRange(min=10000000,max=99999999)])
+    cpf = IntegerField('CPF', validators=[DataRequired(), NumberRange(min=10000000000,max=99999999999)])
     concluir = SubmitField('Concluir')
 
 
