@@ -58,8 +58,17 @@ def adcproduto():
 @app.route('/produtos/todos', methods=['GET', 'POST'])
 def p_todos():
     
-    img_produto = Produtos.query.with_entities(Produtos.imagem).all()
-    return render_template('produtos-todos.html', img_produto=img_produto)
+    produto = Produtos.query.with_entities(Produtos.imagem, Produtos.nome, Produtos.id).all()
+
+    return render_template('produtos-todos.html', produto=produto)
+
+
+
+# @app.route('/produtos/info/<id_produto>', methods=['GET', 'POST'])
+# def info_produto(id_produto):
+
+#     id_produto = Produtos.query.get(id)
+#     return render_template('info-produto.html')
 
 
 

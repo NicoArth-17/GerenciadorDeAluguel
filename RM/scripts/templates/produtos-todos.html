@@ -10,20 +10,20 @@
 
         <div class="painel">
 
-            {% for imagem in img_produto %}
+            {% for imagem, nome, id in produto %}
         
-            <div>
-                <img src="{{ url_for('static', filename='upload_img/{}'.format(imagem[0])) }}" >
+                <a id="img-info" href="{{ url_for('info_produto') }}">
+                    <img src="{{ url_for('static', filename='upload_img/{}'.format(imagem)) }}" >
 
-                <div class="info-produto">
-                    <div id="titulo">
-                        <h2>Nome do Produto</h2>
+                    <div class="info-produto">
+                        <div id="titulo">
+                            <h2>{{ nome }}</h2>
+                        </div>
+                        <div id="codigo">
+                            <h2>{{ id }}</h2>
+                        </div>
                     </div>
-                    <div id="codigo">
-                        <h2>00</h2>
-                    </div>
-                </div>
-            </div>
+                </a>
 
             {% endfor %}    
 
