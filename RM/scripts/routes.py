@@ -64,11 +64,10 @@ def p_todos():
 
 
 
-# @app.route('/produtos/info/<id_produto>', methods=['GET', 'POST'])
-# def info_produto(id_produto):
+@app.route('/produtos/produtos/info', methods=['GET', 'POST'])
+def info_produto():
 
-#     id_produto = Produtos.query.get(id)
-#     return render_template('info-produto.html')
+    return render_template('produtos-info.html')
 
 
 
