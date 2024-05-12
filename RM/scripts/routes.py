@@ -5,6 +5,12 @@ from models import Clientes, Produtos
 from werkzeug.utils import secure_filename
 import os
 
+def formatarReais(n):
+    n = f'R${n:.2f}'
+    n = n.replace('.',',')
+    return n
+
+
 @app.route('/')
 def login():
     return render_template('login.html')
@@ -43,7 +49,7 @@ def adcproduto():
                             tipo=form_AdcProduto.tipo.data,
                             tamanho=form_AdcProduto.tamanho.data,
                             nome=form_AdcProduto.nome.data,
-                            valor=form_AdcProduto.valor.data,
+                            valor=formatarReais(form_AdcProduto.valor.data),
                             descricao=form_AdcProduto.descricao.data)
 
         database.session.add(produto)
@@ -64,10 +70,12 @@ def p_todos():
 
 
 
-@app.route('/produtos/produtos/info', methods=['GET', 'POST'])
-def info_produto():
+@app.route('/produtos/produto<id_produto>/info', methods=['GET', 'POST'])
+def info_produto(id_produto):
 
-    return render_template('produtos-info.html')
+    produto = Produtos.query.filter_by(id=id_produto).first()
+
+    return render_template('produtos-info.html', produto=produto)
 
 
 

@@ -1,5 +1,47 @@
 {% extends 'base.html' %}
 
+{% block head %}
+
+    <link rel="stylesheet" href="../static/css/info-produto.css">
+
+{% endblock %}
+
 {% block body %}
-    <img src="..." class="img-thumbnail" alt="...">
+
+    <div class="container text-center" style="margin-top: 15px; border: 2px solid green;">
+
+        <h1>Informações - Produto {{ produto.id }}</h1>
+
+        <div class="row align-items-start">
+
+            <div class="col" style="border: 2px solid red; width: 20%">
+
+                <ul>
+                    <li>
+                        <p>Nome: {{ produto.nome }}</p>
+                    </li>
+                    <li>
+                        <p>Valor: {{ produto.valor }}</p>
+                    </li>
+                    <li>
+                        <p>Tipo: {{ produto.tipo }}</p>
+                    </li>
+                    <li>
+                        <p>Descrição: {{ produto.descricao }}</p>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="col" id="imagem-prod" style="border: 2px solid black; width: 80%">
+                
+                <img src="{{ url_for('static', filename='upload_img/{}'.format(produto.imagem)) }}"
+                     style="height: 350px; width: 300px; border-radius: 10px; object-fit: cover;">  
+
+            </div>
+        </div>
+        </div>
+
+    </div>
+    
 {% endblock %}

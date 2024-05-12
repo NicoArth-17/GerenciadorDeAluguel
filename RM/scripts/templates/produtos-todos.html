@@ -12,7 +12,7 @@
 
             {% for imagem, nome, id in produto %}
         
-                <a id="img-info" href="{{ url_for('info_produto') }}">
+                <a id="img-info" href="{{ url_for('info_produto', id_produto=id) }}">
                     <img src="{{ url_for('static', filename='upload_img/{}'.format(imagem)) }}" >
 
                     <div class="info-produto">

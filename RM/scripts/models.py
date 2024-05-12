@@ -25,5 +25,5 @@ class Produtos(database.Model, UserMixin):
     tipo = database.Column(database.String, nullable=False) # multipla escolha
     tamanho = database.Column(database.String, nullable=False) #multipla escolha
     nome = database.Column(database.String, nullable=False, unique=True)
-    valor = database.Column(database.Float)
+    valor = database.Column(database.String, nullable=False)
     descricao = database.Column(database.Text, nullable=False)

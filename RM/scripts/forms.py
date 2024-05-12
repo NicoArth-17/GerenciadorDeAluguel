@@ -16,7 +16,7 @@ class FormCadastroCliente(FlaskForm):
 
 
 class FormAdcProduto(FlaskForm):
-    imagem = FileField('Imagem', validators=[DataRequired()])
+    imagem = FileField('Selecione a imagem do produto', validators=[DataRequired()])
     tipo = SelectField('Tipo do produto', choices=['Acessórios', 'Masculino', 'Vestidos', 'Saias'], validators=[DataRequired()])
     tamanho = SelectField('Tamanho', choices=['Não se aplica', '3 anos', '5 anos', '7 anos', '10 anos', '12 anos', '14 anos', '16 anos', 'P', 'M', 'G'])
     nome = StringField('Nome do produto', validators=[DataRequired()])
