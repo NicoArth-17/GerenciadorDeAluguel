@@ -103,7 +103,16 @@ def CadastrarClientes():
 
 
 
-app.route('/calendario')
+@app.route('/clientes', methods=['GET', 'POST'])
+def clientes():
+
+    cliente = Clientes.query.with_entities(Clientes.id, Clientes.nome).all()
+
+    return render_template('clientes.html', cliente=cliente)
+
+
+
+@app.route('/calendario')
 def calendario():
     return render_template('calendario.html')
 

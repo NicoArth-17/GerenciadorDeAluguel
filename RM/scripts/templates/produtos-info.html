@@ -8,40 +8,74 @@
 
 {% block body %}
 
-    <div class="container text-center" style="margin-top: 15px; border: 2px solid green;">
+    <div class="container" style="margin-top: 15px; border: 2px solid green;">
 
-        <h1>Informações - Produto {{ produto.id }}</h1>
+        <h1 style="text-align: center;">Informações - Produto {{ produto.id }}</h1>
 
-        <div class="row align-items-start">
-
-            <div class="col" style="border: 2px solid red; width: 20%">
-
-                <ul>
-                    <li>
-                        <p>Nome: {{ produto.nome }}</p>
-                    </li>
-                    <li>
-                        <p>Valor: {{ produto.valor }}</p>
-                    </li>
-                    <li>
-                        <p>Tipo: {{ produto.tipo }}</p>
-                    </li>
-                    <li>
-                        <p>Descrição: {{ produto.descricao }}</p>
-                    </li>
-                </ul>
-
-            </div>
-
-            <div class="col" id="imagem-prod" style="border: 2px solid black; width: 80%">
+        <div class="row align-items-start" id="painel">
+            
+            <div class="col row align-items-center" id="coluna1" style="border: 2px solid black;">
                 
-                <img src="{{ url_for('static', filename='upload_img/{}'.format(produto.imagem)) }}"
-                     style="height: 350px; width: 300px; border-radius: 10px; object-fit: cover;">  
+                <div class="col" id="coluna1-1">
+                    <img src="{{ url_for('static', filename='upload_img/{}'.format(produto.imagem)) }}"
+                     style="height: 350px; width: 300px; border-radius: 10px; object-fit: cover;">
+                </div>
+                  
+                <div class="col" id="coluna1-2">
 
+                    <ul style="list-style: none; text-align: center;">
+
+                        <li style="display: flex; align-items: center; margin-bottom: 20px; border: 2px solid black; border-radius: 10px;">
+                            <div class="label-info" style="height: 50px;width: 30%; border-right: 2px solid black; padding: 15px; background-color: rgba(128, 128, 128, 0.511);">
+                                <p>Nome</p>
+                            </div>
+                            <div class="info" style="height: 50px;width: 70%; padding: 15px;">
+                                <p>{{ produto.nome }}</p>
+                            </div>
+                            
+                        </li>
+
+                        <li style="display: flex; align-items: center; margin-bottom: 20px; border: 2px solid black; border-radius: 10px;">
+                            <div class="label-info" style="height: 50px;width: 30%; border-right: 2px solid black; padding: 15px; background-color: rgba(128, 128, 128, 0.511);">
+                                <p>Valor</p>
+                            </div>
+                            <div class="info" style="height: 50px;width: 70%; padding: 15px;">
+                                <p>{{ produto.valor }}</p>
+                            </div>
+
+                        </li>
+
+                        <li style="display: flex; align-items: center; margin-bottom: 20px; border: 2px solid black; border-radius: 10px;">
+                            <div class="label-info" style="height: 50px;width: 30%; border-right: 2px solid black; padding: 15px; background-color: rgba(128, 128, 128, 0.511);">
+                                <p>Tipo</p>
+                            </div>
+                            <div class="info" style="height: 50px;width: 70%; padding: 15px;">
+                                <p>{{ produto.tipo }}</p>
+                            </div>
+
+                        </li>
+
+                        <li style="display: flex; align-items: center; border: 2px solid black; border-radius: 10px;">
+                            <div class="label-info" style="height: 50px;width: 30%; border-right: 2px solid black; padding: 15px; background-color: rgba(128, 128, 128, 0.511);">
+                                <p>Descrição</p>
+                            </div>
+                            <div class="info" style="height: 50px;width: 70%; padding: 15px;">
+                                <p>{{ produto.descricao}}</p>
+                            </div>
+
+                        </li>
+
+                    </ul>
+                </div>
             </div>
+
+            <div class="col" id="coluna2" style="border: 2px solid red;"></div>
+
         </div>
         </div>
 
     </div>
+
+    <footer style="margin-top: 15px;"></footer>
     
 {% endblock %}

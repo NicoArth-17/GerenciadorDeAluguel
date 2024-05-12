@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block body %}
+    {% for id, nome in cliente %}
+        <h1>{{ nome }}</h1>
+    {% endfor %}
+{% endblock %}

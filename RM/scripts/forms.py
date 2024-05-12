@@ -10,8 +10,8 @@ class FormCadastroCliente(FlaskForm):
     endereco = StringField('Endereço', validators=[DataRequired()])
     cidade = StringField('Cidade', validators=[DataRequired()])
     uf = SelectField('UF', choices=['MG', 'RJ', 'ES', 'SP'], validators=[DataRequired()])
-    cep = IntegerField('CEP', validators=[DataRequired(), NumberRange(min=10000000,max=99999999)])
-    cpf = IntegerField('CPF', validators=[DataRequired(), NumberRange(min=10000000000,max=99999999999)])
+    cep = IntegerField('CEP', validators=[DataRequired(), NumberRange(min=10000000, max=99999999)])
+    cpf = IntegerField('CPF', validators=[DataRequired(), NumberRange(min=1000000000, max=999999999999)])
     concluir = SubmitField('Concluir')
 
 
