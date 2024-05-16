@@ -11,6 +11,7 @@ def formatarReais(n):
     return n
 
 
+
 @app.route('/')
 def login():
     return render_template('login.html')
@@ -79,6 +80,23 @@ def info_produto(id_produto):
 
 
 
+def formatar_cpf(num):
+    f_cpf = str(num)
+    f_cpf = f'{f_cpf[:3]}.{f_cpf[3:6]}.{f_cpf[6:9]}-{f_cpf[9:]}'
+    return f_cpf
+
+def formatar_tell(num):
+    f_tell = str(num)
+    f_tell = f'({f_tell[:2]}) {f_tell[2:7]}-{f_tell[7:]}'
+    return f_tell
+
+def formatar_cep(num):
+    f_cep = str(num)
+    f_cep = f'{f_cep[:5]}-{f_cep[5:]}'
+    return f_cep
+
+
+
 @app.route('/AdcClientes', methods=['GET', 'POST'])
 def CadastrarClientes():
 
@@ -87,12 +105,12 @@ def CadastrarClientes():
     if form_CadCliente.validate_on_submit():
 
         cliente = Clientes(nome=form_CadCliente.nome.data, 
-                           telefone=form_CadCliente.telefone.data, 
+                           telefone=formatar_tell(form_CadCliente.telefone.data), 
                            endereco=form_CadCliente.endereco.data, 
                            cidade=form_CadCliente.cidade.data, 
                            uf=form_CadCliente.uf.data, 
-                           cep=form_CadCliente.cep.data, 
-                           cpf=form_CadCliente.cpf.data)
+                           cep=formatar_cep(form_CadCliente.cep.data), 
+                           cpf=formatar_cpf(form_CadCliente.cpf.data))
 
         database.session.add(cliente)
         database.session.commit()
@@ -106,7 +124,7 @@ def CadastrarClientes():
 @app.route('/clientes', methods=['GET', 'POST'])
 def clientes():
 
-    cliente = Clientes.query.with_entities(Clientes.id, Clientes.nome).all()
+    cliente = Clientes.query.with_entities(Clientes.id, Clientes.nome, Clientes.cpf, Clientes.telefone, Clientes.endereco, Clientes.cidade, Clientes.uf, Clientes.cep).all()
 
     return render_template('clientes.html', cliente=cliente)
 

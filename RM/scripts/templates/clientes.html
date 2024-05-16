@@ -1,7 +1,29 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <link rel="stylesheet" href="../static/css/clientes.css">
+{% endblock %}
+
 {% block body %}
-    {% for id, nome in cliente %}
-        <h1>{{ nome }}</h1>
-    {% endfor %}
+    <div class="container">
+        <div class="painel" style="text-align: center;">
+
+            {% for id, nome, cpf, telefone, endereco, cidade, uf, cep in cliente %}
+
+                <div class="client" style="border: 2px solid black;">
+                    <h2>{{ id }} - {{ nome }}</h2>
+
+                    <hr>
+
+                    <p>{{ cpf }}</p>
+                    <p>{{ telefone }}</p>
+                    <p>{{ endereco }}</p>
+                    <p>{{ cidade }} - {{ uf }}</p>
+                    <p>{{ cep }}</p>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
 {% endblock %}

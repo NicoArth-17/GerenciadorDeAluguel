@@ -11,12 +11,12 @@ from flask_login import UserMixin
 class Clientes(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
     nome = database.Column(database.String, nullable=False)
-    telefone = database.Column(database.Integer)
+    telefone = database.Column(database.String, nullable=False)
     endereco = database.Column(database.Text, nullable=False)
     cidade = database.Column(database.String, nullable=False)
     uf = database.Column(database.String, nullable=False) #multipla escolha
-    cep = database.Column(database.Integer)
-    cpf = database.Column(database.Integer)
+    cep = database.Column(database.String, nullable=False)
+    cpf = database.Column(database.String, nullable=False)
 
 # Tabela de produtos adicionados
 class Produtos(database.Model, UserMixin):
