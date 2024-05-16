@@ -11,6 +11,29 @@ def formatarReais(n):
     return n
 
 
+def formatar_cpf(num):
+    f_cpf = str(num)
+
+    if f_cpf[0] == 0:
+        f_cpf = f'0{f_cpf[:3]}.{f_cpf[3:6]}.{f_cpf[6:9]}-{f_cpf[9:]}'
+    else:
+        f_cpf = f'{f_cpf[:3]}.{f_cpf[3:6]}.{f_cpf[6:9]}-{f_cpf[9:]}'
+
+    return f_cpf
+
+
+def formatar_tell(num):
+    f_tell = str(num)
+    f_tell = f'({f_tell[:2]}) {f_tell[2:7]}-{f_tell[7:]}'
+    return f_tell
+
+
+def formatar_cep(num):
+    f_cep = str(num)
+    f_cep = f'{f_cep[:5]}-{f_cep[5:]}'
+    return f_cep
+
+
 
 @app.route('/')
 def login():
@@ -77,23 +100,6 @@ def info_produto(id_produto):
     produto = Produtos.query.filter_by(id=id_produto).first()
 
     return render_template('produtos-info.html', produto=produto)
-
-
-
-def formatar_cpf(num):
-    f_cpf = str(num)
-    f_cpf = f'{f_cpf[:3]}.{f_cpf[3:6]}.{f_cpf[6:9]}-{f_cpf[9:]}'
-    return f_cpf
-
-def formatar_tell(num):
-    f_tell = str(num)
-    f_tell = f'({f_tell[:2]}) {f_tell[2:7]}-{f_tell[7:]}'
-    return f_tell
-
-def formatar_cep(num):
-    f_cep = str(num)
-    f_cep = f'{f_cep[:5]}-{f_cep[5:]}'
-    return f_cep
 
 
 
