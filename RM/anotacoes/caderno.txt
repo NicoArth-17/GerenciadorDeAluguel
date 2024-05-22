@@ -1,6 +1,13 @@
 crie em PYTHON, HTML e CSS, um sistema com login para alugar roupas e acessórios em que a nav bar terá opção para acessar todos os produtos pela foto com o nome do protudo, e ao clicar na foto, ser direcionado para uma página com o nome do produto, descrição, informações do aluguel como quem alugou, data de locação endereço, número de telefone e CPF do cliente, preço do produto, valor pago ou pendência de pagamento, calendário com agenda dos dias que  o produto estará alugado. Na página onde mostra todos os produtos, incluir filtro de pesquisa para produtos femininos, masculinos, data de locação,  acessório, roupas, pagos, pendência de pagamentos e disponibilidade para os dias marcados em um calendário
 
 
+*Próximos passos
+    1. Vincular lista com nome de todos os clientes cadastrads no bando de dados no formulario de aluguel
+    2. Criar a tabela aluguel no arquivo models
+    3. Criar loop para implementar tabela a cada formuláro de aluguel concluido
+    4. Ancorar nome do cliente para página de painel de clientes ou exibir somente o id do cliente
+    5. Criar ação submit na rota
+
 *Mudanças a serem pensadas
     Cadastrar endereço do cliente diretamente utilizando o maps    
     Criar um controle de saída onde todas as vendas e devoluções serão registrados

@@ -16,15 +16,13 @@
             
             <div class="col row align-items-center" id="coluna1" style="border: 2px solid black;">
                 
-                <div class="col" id="coluna1-1">
+                <div style="margin-bottom: 10px; text-align: center;">
                     <img src="{{ url_for('static', filename='upload_img/{}'.format(produto.imagem)) }}"
                      style="height: 350px; width: 300px; border-radius: 10px; object-fit: cover;">
                 </div>
                   
-                <div class="col" id="coluna1-2">
-
+                <div>
                     <ul style="list-style: none; text-align: center;">
-
                         <li style="display: flex; align-items: center; margin-bottom: 20px; border: 2px solid black; border-radius: 10px;">
                             <div class="label-info" style="height: 50px;width: 30%; border-right: 2px solid black; padding: 15px; background-color: rgba(128, 128, 128, 0.511);">
                                 <p>Nome</p>
@@ -32,9 +30,8 @@
                             <div class="info" style="height: 50px;width: 70%; padding: 15px;">
                                 <p>{{ produto.nome }}</p>
                             </div>
-                            
+                    
                         </li>
-
                         <li style="display: flex; align-items: center; margin-bottom: 20px; border: 2px solid black; border-radius: 10px;">
                             <div class="label-info" style="height: 50px;width: 30%; border-right: 2px solid black; padding: 15px; background-color: rgba(128, 128, 128, 0.511);">
                                 <p>Valor</p>
@@ -42,9 +39,7 @@
                             <div class="info" style="height: 50px;width: 70%; padding: 15px;">
                                 <p>{{ produto.valor }}</p>
                             </div>
-
                         </li>
-
                         <li style="display: flex; align-items: center; margin-bottom: 20px; border: 2px solid black; border-radius: 10px;">
                             <div class="label-info" style="height: 50px;width: 30%; border-right: 2px solid black; padding: 15px; background-color: rgba(128, 128, 128, 0.511);">
                                 <p>Tipo</p>
@@ -52,9 +47,7 @@
                             <div class="info" style="height: 50px;width: 70%; padding: 15px;">
                                 <p>{{ produto.tipo }}</p>
                             </div>
-
                         </li>
-
                         <li style="display: flex; align-items: center; border: 2px solid black; border-radius: 10px;">
                             <div class="label-info" style="height: 50px;width: 30%; border-right: 2px solid black; padding: 15px; background-color: rgba(128, 128, 128, 0.511);">
                                 <p>Descrição</p>
@@ -62,14 +55,75 @@
                             <div class="info" style="height: 50px;width: 70%; padding: 15px;">
                                 <p>{{ produto.descricao}}</p>
                             </div>
-
                         </li>
-
                     </ul>
                 </div>
+
             </div>
 
-            <div class="col" id="coluna2" style="border: 2px solid red;"></div>
+            <div class="col" id="coluna2" style="border: 2px solid red;">
+
+                <div class="container" style="margin-top: 15px;">
+
+                    <form method="POST" enctype="multipart/form-data" class="row g-3">
+                        {{ form.csrf_token }}
+
+                        <!-- Clientes -->
+                        <div class="col-md-12">
+                            {{ form.cliente.label(class="form-label") }}
+                            {{ form.cliente(class="form-select") }}
+                        </div>
+
+                        <!-- Data Locação -->
+                        <div class="col-md-6">
+                            {{ form.locacao.label(class="form-label") }}
+                            {{ form.locacao(class="form-control") }}
+                        </div>
+
+                        <!-- Data Devolução -->
+                        <div class="col-md-6">
+                            {{ form.devolucao.label(class="form-label") }}
+                            {{ form.devolucao(class="form-control") }}
+                        </div>
+
+                        <!-- Botão submit -->
+                        <div class="col-12" style="text-align: center;">
+                            {{ form.concluir(class="btn btn-primary") }}
+                        </div>
+
+                    </form>
+                </div>
+
+                <hr>
+
+                <div class="container">
+
+                    <table class="table table-hover" style="text-align: center;">
+                        <thead>
+                          <tr>
+                            <th scope="col">Data Locação</th>
+                            <th scope="col">Data Devolução</th>
+                            <th scope="col">Cliente</th>
+                          </tr>
+                        </thead>
+
+
+                        <tbody>
+                          <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                          <tr>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+
+            </div>
 
         </div>
         </div>

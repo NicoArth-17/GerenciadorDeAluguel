@@ -11,7 +11,7 @@ class FormCadastroCliente(FlaskForm):
     cidade = StringField('Cidade', validators=[DataRequired()])
     uf = SelectField('UF', choices=['MG', 'RJ', 'ES', 'SP'], validators=[DataRequired()])
     cep = IntegerField('CEP', validators=[DataRequired(), NumberRange(min=10000000, max=99999999)])
-    cpf = IntegerField('CPF', validators=[DataRequired(), NumberRange(min=1000000000, max=999999999999)])
+    cpf = StringField('CPF', validators=[DataRequired(), Length(11)])
     concluir = SubmitField('Concluir')
 
 
@@ -22,4 +22,11 @@ class FormAdcProduto(FlaskForm):
     nome = StringField('Nome do produto', validators=[DataRequired()])
     valor = DecimalField('Preço', places=2, validators=[DataRequired()])
     descricao = TextAreaField('Descrição', validators=[Length(0,100)])
+    concluir = SubmitField('Concluir')
+
+
+class FormAlugar(FlaskForm):
+    locacao = DateField('Dia da locação', format='%d-%m-%Y', validators=[DataRequired()])
+    devolucao = DateField('Dia da devolução', format='%d-%m-%Y', validators=[DataRequired()])
+    cliente = SelectField('Cliente', choices=[], validators=[DataRequired()])
     concluir = SubmitField('Concluir')

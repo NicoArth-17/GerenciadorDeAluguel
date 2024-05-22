@@ -27,3 +27,10 @@ class Produtos(database.Model, UserMixin):
     nome = database.Column(database.String, nullable=False, unique=True)
     valor = database.Column(database.String, nullable=False)
     descricao = database.Column(database.Text, nullable=False)
+
+
+class Alugueis(database.Model, UserMixin):
+    id = database.Column(database.Integer, primary_key=True)
+    # locacao
+    # devolucao
+    # cliente

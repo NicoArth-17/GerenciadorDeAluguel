@@ -1,6 +1,6 @@
 from __init__ import app, database
 from flask import render_template, url_for, redirect
-from forms import FormCadastroCliente, FormAdcProduto
+from forms import FormCadastroCliente, FormAdcProduto, FormAlugar
 from models import Clientes, Produtos
 from werkzeug.utils import secure_filename
 import os
@@ -12,7 +12,7 @@ def formatarReais(n):
 
 
 def formatar_cpf(num):
-    f_cpf = str(num)
+    f_cpf = num
 
     if f_cpf[0] == 0:
         f_cpf = f'0{f_cpf[:3]}.{f_cpf[3:6]}.{f_cpf[6:9]}-{f_cpf[9:]}'
@@ -97,9 +97,11 @@ def p_todos():
 @app.route('/produtos/produto<id_produto>/info', methods=['GET', 'POST'])
 def info_produto(id_produto):
 
+    form_Alugar = FormAlugar()
+
     produto = Produtos.query.filter_by(id=id_produto).first()
 
-    return render_template('produtos-info.html', produto=produto)
+    return render_template('produtos-info.html', produto=produto, form=form_Alugar)
 
 
 
