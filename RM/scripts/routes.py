@@ -1,7 +1,7 @@
 from __init__ import app, database
 from flask import render_template, url_for, redirect
 from forms import FormCadastroCliente, FormAdcProduto, FormAlugar
-from models import Clientes, Produtos
+from models import Clientes, Produtos, Alugueis
 from werkzeug.utils import secure_filename
 import os
 
@@ -99,9 +99,17 @@ def info_produto(id_produto):
 
     form_Alugar = FormAlugar()
 
+    if form_Alugar.validate_on_submit():
+
+        aluguel = Alugueis(locacao=form_Alugar.locacao.data,
+                           devolucao=form_Alugar.devolucao.data,
+                           #id_cliente,
+                           id_produto=id_produto
+                           )
+
     produto = Produtos.query.filter_by(id=id_produto).first()
 
-    return render_template('produtos-info.html', produto=produto, form=form_Alugar)
+    return render_template('produtos-info.html', produto=produto, aluguel=aluguel, form=form_Alugar)
 
 
 

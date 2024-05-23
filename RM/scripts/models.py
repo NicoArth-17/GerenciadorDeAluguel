@@ -17,6 +17,7 @@ class Clientes(database.Model, UserMixin):
     uf = database.Column(database.String, nullable=False) #multipla escolha
     cep = database.Column(database.String, nullable=False)
     cpf = database.Column(database.String, nullable=False)
+    c_aluguel = database.relationship('tabela', backref='clientes', lazy='subquery')
 
 # Tabela de produtos adicionados
 class Produtos(database.Model, UserMixin):
@@ -27,10 +28,19 @@ class Produtos(database.Model, UserMixin):
     nome = database.Column(database.String, nullable=False, unique=True)
     valor = database.Column(database.String, nullable=False)
     descricao = database.Column(database.Text, nullable=False)
+    p_aluguel = database.relationship('tabela', backref='produtos', lazy='subquery')
 
-
+# Tabela de aluguéis
 class Alugueis(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
-    # locacao
-    # devolucao
-    # cliente
+    locacao = database.Column(database.DateTime, nullable=False)
+    devolucao = database.Column(database.DateTime, nullable=False)
+    aluguel = database.relationship('tabela', backref='alugueis', lazy='subquery')
+    # id_cliente = database.Column(database.Integer, database.ForeignKey('Clientes.id'), nullable=False)
+    # id_produto = database.Column(database.Integer, database.ForeignKey('Produtos.id'), nullable=False)
+
+# Tabela auxiliar de relacionamento de muitos-para-muitos
+tabela = database.Table('tabela',
+                        database.Column(database.Integer, database.ForeignKey('alugueis.id'), primary_key=True),
+                        database.Column(database.Integer, database.ForeignKey('clientes.id'), primary_key=True),
+                        database.Column(database.Integer, database.ForeignKey('produtos.id'), primary_key=True))
