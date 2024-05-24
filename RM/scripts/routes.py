@@ -99,17 +99,23 @@ def info_produto(id_produto):
 
     form_Alugar = FormAlugar()
 
+    form_Alugar.cliente.choices = [(client.id, client.nome) for client in Clientes.query.all()]
+
+    produto = Produtos.query.filter_by(id=id_produto).first()
+
     if form_Alugar.validate_on_submit():
 
         aluguel = Alugueis(locacao=form_Alugar.locacao.data,
                            devolucao=form_Alugar.devolucao.data,
-                           #id_cliente,
-                           id_produto=id_produto
-                           )
+                           id_cliente=form_Alugar.cliente.data,
+                           id_produto=id_produto)
+        
+        database.session.add(aluguel)
+        database.session.commit()
 
-    produto = Produtos.query.filter_by(id=id_produto).first()
+        return render_template('produtos-info.html', produto=produto, aluguel=aluguel, form=form_Alugar)
 
-    return render_template('produtos-info.html', produto=produto, aluguel=aluguel, form=form_Alugar)
+    return render_template('produtos-info.html', produto=produto, form=form_Alugar)
 
 
 

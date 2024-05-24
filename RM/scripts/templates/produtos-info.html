@@ -107,8 +107,18 @@
                           </tr>
                         </thead>
 
-
                         <tbody>
+                        {% for locacao, devolucao, id_cliente in aluguel %}
+                            
+                            <tr>
+                            <td>{{ locacao }}</td>
+                            <td>{{ devolucao }}</td>
+                            <td>{{ id_cliente }}</td>
+                            </tr>
+
+                        {% endfor %}
+                        </tbody>
+                        <!-- <tbody>
                           <tr>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -119,7 +129,7 @@
                             <td>Thornton</td>
                             <td>@fat</td>
                           </tr>
-                        </tbody>
+                        </tbody> -->
                       </table>
                 </div>
 

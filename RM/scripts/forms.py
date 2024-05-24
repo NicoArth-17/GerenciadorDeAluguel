@@ -28,5 +28,5 @@ class FormAdcProduto(FlaskForm):
 class FormAlugar(FlaskForm):
     locacao = DateField('Dia da locação', format='%d-%m-%Y', validators=[DataRequired()])
     devolucao = DateField('Dia da devolução', format='%d-%m-%Y', validators=[DataRequired()])
-    cliente = SelectField('Cliente', choices=[Clientes.nome], validators=[DataRequired()])
+    cliente = SelectField('Cliente', choices=[], validators=[DataRequired()])
     concluir = SubmitField('Concluir')
