@@ -97,24 +97,32 @@ def p_todos():
 @app.route('/produtos/produto<id_produto>/info', methods=['GET', 'POST'])
 def info_produto(id_produto):
 
+    # Formulário de locação
     form_Alugar = FormAlugar()
 
-    form_Alugar.cliente.choices = [(client.id, client.nome) for client in Clientes.query.all()]
+    # Inserindo coluna dos nomes de clientes cadastrados no banco de dados no campo de seleção do formulário de locação
+    form_Alugar.cliente.choices = [(f'{client.id} - {client.nome}') for client in Clientes.query.all()]
 
+    # Selecionando o produto no banco de dados referênte ao clicado na página anterior para exibir suas informações
     produto = Produtos.query.filter_by(id=id_produto).first()
 
+    # Se o botão de conclusão do formulário for clicado
     if form_Alugar.validate_on_submit():
 
+        # Preenchendo a tabela de aluguel com as informações do formulário
         aluguel = Alugueis(locacao=form_Alugar.locacao.data,
                            devolucao=form_Alugar.devolucao.data,
                            id_cliente=form_Alugar.cliente.data,
                            id_produto=id_produto)
         
+        # Adicionando no banco de dados
         database.session.add(aluguel)
         database.session.commit()
 
+        # Após formulário submetido, retornar a mesma página inserindo os dados enviados na tabela abaixo do formulário
         return render_template('produtos-info.html', produto=produto, aluguel=aluguel, form=form_Alugar)
 
+    # Retornar página com as informações do produto selecionado na página anterior
     return render_template('produtos-info.html', produto=produto, form=form_Alugar)
 
 
