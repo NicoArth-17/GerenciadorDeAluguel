@@ -41,9 +41,3 @@ class Alugueis(database.Model, UserMixin):
     id_produto = database.Column(database.Integer, database.ForeignKey('produtos.id'), nullable=False)
     
     
-
-# Tabela auxiliar de relacionamento de muitos-para-muitos
-# tabela = database.Table('tabela',
-#                         database.Column(database.Integer, database.ForeignKey('alugueis.id'), primary_key=True),
-#                         database.Column(database.Integer, database.ForeignKey('clientes.id'), primary_key=True),
-#                         database.Column(database.Integer, database.ForeignKey('produtos.id'), primary_key=True))

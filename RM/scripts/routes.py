@@ -4,6 +4,7 @@ from forms import FormCadastroCliente, FormAdcProduto, FormAlugar
 from models import Clientes, Produtos, Alugueis
 from werkzeug.utils import secure_filename
 import os
+from datetime import datetime
 
 def formatarReais(n):
     n = f'R${n:.2f}'
@@ -109,9 +110,12 @@ def info_produto(id_produto):
     # Se o botão de conclusão do formulário for clicado
     if form_Alugar.validate_on_submit():
 
+        data_alugar = datetime.strptime(form_Alugar.locacao.data, '%d/%m/%Y').date()
+        data_devolver = datetime.strptime(form_Alugar.devolucao.data, '%d/%m/%Y').date()
+
         # Preenchendo a tabela de aluguel com as informações do formulário
-        aluguel = Alugueis(locacao=form_Alugar.locacao.data,
-                           devolucao=form_Alugar.devolucao.data,
+        aluguel = Alugueis(locacao=data_alugar,
+                           devolucao=data_devolver,
                            id_cliente=form_Alugar.cliente.data,
                            id_produto=id_produto)
         
