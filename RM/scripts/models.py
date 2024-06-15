@@ -35,8 +35,8 @@ class Produtos(database.Model, UserMixin):
 # Tabela de aluguéis
 class Alugueis(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
-    locacao = database.Column(database.Date, nullable=False)
-    devolucao = database.Column(database.Date, nullable=False)
+    locacao = database.Column(database.String, nullable=False)
+    devolucao = database.Column(database.String, nullable=False)
     id_cliente = database.Column(database.Integer, database.ForeignKey('clientes.id'), nullable=False)
     id_produto = database.Column(database.Integer, database.ForeignKey('produtos.id'), nullable=False)
     

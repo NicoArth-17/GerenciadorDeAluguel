@@ -141,16 +141,16 @@
                         </thead>
                         <!-- Corpo da tabelas -->
                         <tbody>
-                        {% for locacao, devolucao, id_cliente in aluguel %}
+                            {% for locacao, devolucao, id_cliente in alugueis_produto %}
                             
                             <!-- Linhas -->
                             <tr>
-                            <td>{{ locacao }}</td>
-                            <td>{{ devolucao }}</td>
-                            <td>{{ id_cliente }}</td>
+                                <td>{{ locacao }}</td>
+                                <td>{{ devolucao }}</td>
+                                <td>{{ id_cliente }}</td>
                             </tr>
 
-                        {% endfor %}
+                            {% endfor %}
                         </tbody>
 
                     </table>
