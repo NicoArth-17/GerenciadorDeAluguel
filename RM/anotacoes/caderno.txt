@@ -2,11 +2,9 @@ crie em PYTHON, HTML e CSS, um sistema com login para alugar roupas e acessório
 
 
 *Próximos passos
-    1. Vincular lista com nome de todos os clientes cadastrads no bando de dados no formulario de aluguel
-    2. Criar a tabela aluguel no arquivo models
-    3. Criar loop para implementar tabela a cada formuláro de aluguel concluido
-    4. Ancorar nome do cliente para página de painel de clientes ou exibir somente o id do cliente
-    5. Criar ação submit na rota
+    1. Criar um mecanismo de pesquisa dos produtos e dos dos clientes
+    2. Separar as páginas de painel de produtos por categoria
+    3. validar informação dos clientes
 
 *Mudanças a serem pensadas
     Cadastrar endereço do cliente diretamente utilizando o maps    
