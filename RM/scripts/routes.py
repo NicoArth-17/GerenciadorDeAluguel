@@ -114,17 +114,9 @@ def info_produto(id_produto):
     # Se o botão de conclusão do formulário for clicado
     if form_Alugar.validate_on_submit():
 
-        data_alugar = datetime.strptime(form_Alugar.locacao.data, '%d/%m/%Y').date()
-        data_devolver = datetime.strptime(form_Alugar.devolucao.data, '%d/%m/%Y').date()
-
         # Preenchendo a tabela de aluguel com as informações do formulário
-<<<<<<< HEAD
         aluguel = Alugueis(locacao=formatarData(form_Alugar.locacao.data),
                            devolucao=formatarData(form_Alugar.devolucao.data),
-=======
-        aluguel = Alugueis(locacao=data_alugar,
-                           devolucao=data_devolver,
->>>>>>> 5b4a47cea6e7823f317545b4bcf11beb4f1af153
                            id_cliente=form_Alugar.cliente.data,
                            id_produto=id_produto)
 
@@ -132,12 +124,8 @@ def info_produto(id_produto):
         database.session.add(aluguel)
         database.session.commit()
 
-        # aluguel1 = Alugueis.query.filter_by(id=id_produto).all()
-
-        # # Após formulário submetido, retornar a mesma página inserindo os dados enviados na tabela abaixo do formulário
-        # return render_template('produtos-info.html', produto=produto, aluguel=aluguel1, form=form_Alugar)
-
-    alugueis_produto = Alugueis.query.filter_by(id=id_produto).all()
+    # Bucando todos os produtos 
+    alugueis_produto = Alugueis.query.filter_by(id_produto=id_produto).all()
 
     # Retornar página com as informações do produto selecionado na página anterior
     return render_template('produtos-info.html', produto=produto, alugueis_produto=alugueis_produto, form=form_Alugar)

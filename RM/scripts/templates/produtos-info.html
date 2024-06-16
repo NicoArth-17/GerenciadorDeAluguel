@@ -11,21 +11,21 @@
 {% block body %}
 
     <!-- Main -->
-    <div class="container" style="margin-top: 15px; border: 2px solid green;">
+    <div class="container" style="margin-top: 15px;">
 
         <!-- Título do main -->
-        <h1 style="text-align: center;">Informações - Produto {{ produto.id }}</h1>
+        <h1 style="text-align: center; margin-bottom: 20px;">Informações - Produto {{ produto.id }}</h1>
 
         <!-- Painel de informações dividido em 2 -->
         <div class="row align-items-start" id="painel">
             
             <!-- Painel esquerdo de informações do produto -->
-            <div class="col row align-items-center" id="coluna1" style="border: 2px solid black;">
+            <div class="col row align-items-center" id="coluna1">
                 
                 <!-- Caixa para imagem -->
                 <div style="margin-bottom: 10px; text-align: center;">
                     <img src="{{ url_for('static', filename='upload_img/{}'.format(produto.imagem)) }}"
-                     style="height: 350px; width: 300px; border-radius: 10px; object-fit: cover;">
+                     style="height: 350px; width: 300px; border-radius: 10px; object-fit: cover; border: 2px solid black;">
                 </div>
                   
                 <!-- Caixa para demais informações do produto -->
@@ -88,7 +88,7 @@
             </div>
 
             <!-- Painel direito de informações sobre aluguel e formulário de locação -->
-            <div class="col" id="coluna2" style="border: 2px solid red;">
+            <div class="col" id="coluna2">
 
                 <!-- Caixa para formulário -->
                 <div class="container" style="margin-top: 15px;">
@@ -141,13 +141,13 @@
                         </thead>
                         <!-- Corpo da tabelas -->
                         <tbody>
-                            {% for locacao, devolucao, id_cliente in alugueis_produto %}
+                            {% for aluguel in alugueis_produto %}
                             
                             <!-- Linhas -->
                             <tr>
-                                <td>{{ locacao }}</td>
-                                <td>{{ devolucao }}</td>
-                                <td>{{ id_cliente }}</td>
+                                <td>{{ aluguel.locacao }}</td>
+                                <td>{{ aluguel.devolucao }}</td>
+                                <td>{{ aluguel.id_cliente }}</td>
                             </tr>
 
                             {% endfor %}
